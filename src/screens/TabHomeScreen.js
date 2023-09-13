@@ -10,37 +10,77 @@ const topMargin = ios? 'mt-3': 'mt-10';
 
 export default function TabHomeScreen() {
   return (
-    <View style={styles.container}>
-      <View style={styles.sidebar}>
-        <Text style={styles.sidebarText}>Sidebar Content</Text>
-      </View>
-      <View style={styles.mainContent}>
-        <Text>Main Content Here</Text>
-      </View>
-    </View>
-  );
-};
+    <SafeAreaView className="flex-1 bg-white">
+      <ScrollView showsVerticalScrollIndicator={false} className={"space-y-6 "+topMargin}>
+        {/* avatar */}
+        <View>
+        <View className="mx-5 flex-row justify-between items-center">
+          <View>
+          <Text style={{fontSize: wp(3)}} className="font-bold text-neutral-900">Hanoi, Vietnam</Text>
+          <Image source={require('../../assets/images/cloud.png')} style={{height: wp(4), width: wp(4)}} />
+          </View>
+          <TouchableOpacity>
+          <MagnifyingGlassIcon size={20} strokeWidth={3} color="gray" />
+          </TouchableOpacity>
+          </View>
+        
+          {/* avatars */}
+          <View className=" mx-5 flex-row justify-between items-center">
+          <TouchableOpacity>
+            <Image source={require('../../assets/images/avatar.png')} style={{height: wp(12), width: wp(12)}} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image source={require('../../assets/images/avatar.png')} style={{height: wp(12), width: wp(12)}} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image source={require('../../assets/images/avatar.png')} style={{height: wp(12), width: wp(12)}} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image source={require('../../assets/images/avatar.png')} style={{height: wp(12), width: wp(12)}} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image source={require('../../assets/images/avatar.png')} style={{height: wp(12), width: wp(12)}} />
+          </TouchableOpacity>
+          </View>
+        
+        {/* search bar */}
+        {/* <View className="mx-5 mb-4">
+          <View className="flex-row items-center bg-neutral-100 rounded-full p-4 space-x-2 pl-6">
+            <MagnifyingGlassIcon size={20} strokeWidth={3} color="gray" />
+            <TextInput
+              placeholder='Search destination'
+              placeholderTextColor={'gray'}
+              className="flex-1 text-base mb-1 pl-1 tracking-wider"
+            />
+          </View>
+        </View> */}
+
+        {/* categories */}
+        <View className="mb-4">
+          <Categories />
+        </View>
+
+        {/* sort categories */}
+        <View className="mb-4">
+          <SortCategories />
+        </View>
+
+        {/* destinations */}
+        <View>
+          <Destinations />
+        </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',  // This makes sure the child components (sidebar and main content) are laid out horizontally
   },
-  sidebar: {
-    width: 150,            // Fixed width for the sidebar
-    backgroundColor: '#333',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-  },
-  sidebarText: {
-    color: '#fff',
-    fontSize: 16,
-  },
-  mainContent: {
-    flex: 1,               // This makes sure the main content fills the rest of the screen space
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f0f0f0',
+  text: {
+    fontSize: 25,
+    fontWeight: '500',
   },
 });
